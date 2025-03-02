@@ -34,7 +34,7 @@ spec:
         tier: mariadb
     spec:
       containers:
-        - image: public.ecr.aws/c0m6s3p2/tomer-k8s-inegrative/wordpress:latest
+        - image: public.ecr.aws/c0m6s3p2/tomer-k8s-inegrative/db:latest
           name: mariadb
           args:
             - "--default-authentication-plugin=mysql_native_password"
