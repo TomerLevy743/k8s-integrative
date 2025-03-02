@@ -1,26 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-service
+  name: wordpress
   namespace: tomer
+  labels:
+    app: wordpress
 spec:
+  selector:
+    app: wordpress
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  selector:
-    app: wordpress
-    tier: frontend
   type: ClusterIP
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim-tomer
-  labels:
-    app: wordtomerpress
+  namespace: tomer
 spec:
-  # storageClassName: ebs-sc-tomer
+  storageClassName: ebs-sc-tomer
   accessModes:
     - ReadWriteOnce
   resources:
@@ -32,41 +33,34 @@ kind: Deployment
 metadata:
   name: wordpress
   namespace: tomer
-  labels:
-    app: wordpress
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: wordpress
-      tier: frontend
   template:
     metadata:
       labels:
         app: wordpress
-        tier: frontend
     spec:
       containers:
         - name: wordpress
           image: public.ecr.aws/c0m6s3p2/tomer-k8s-inegrative/wordpress:latest
           env:
             - name: WORDPRESS_DB_HOST
-              value: db
+              value: "mariadb"
             - name: WORDPRESS_DB_USER
-              value: wordpress
+              value: "wordpress"
             - name: WORDPRESS_DB_PASSWORD
-              value: wordpress
+              value: "wordpress"
             - name: WORDPRESS_DB_NAME
-              value: wordpress
-            - name: MARIADB_ROOT_PASSWORD
-              value: somewordpress
+              value: "wordpress"
           ports:
             - containerPort: 80
-              name: wordpress
           volumeMounts:
-            - name: wordpress-persistent-storage
+            - name: wordpress-volume
               mountPath: /var/www/html
       volumes:
-        - name: wordpress-persistent-storage
+        - name: wordpress-volume
           persistentVolumeClaim:
-            claimName: wp-pv-claim-tomer
+            claimName: wp-pv-claim-tomer'
