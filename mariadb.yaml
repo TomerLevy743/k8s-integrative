@@ -59,7 +59,7 @@ spec:
         name: tomer-db-vc
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: ebs-sc-tomer
+        # storageClassName: ebs-sc-tomer
         resources:
           requests:
             storage: 1Gi
