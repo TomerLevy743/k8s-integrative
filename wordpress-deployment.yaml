@@ -20,7 +20,7 @@ metadata:
   labels:
     app: wordtomerpress
 spec:
-  storageClassName: ebs-sc-tomer
+  # storageClassName: ebs-sc-tomer
   accessModes:
     - ReadWriteOnce
   resources:
