@@ -12,20 +12,20 @@ spec:
     app: wordpress
     tier: frontend
   type: ClusterIP
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: wp-pv-claim-tomer
-  labels:
-    app: wordtomerpress
-spec:
-  storageClassName: ebs-sc-tomer
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: wp-pv-claim-tomer
+#   labels:
+#     app: wordtomerpress
+# spec:
+#   storageClassName: ebs-sc-tomer
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 5Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
