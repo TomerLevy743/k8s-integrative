@@ -12,7 +12,7 @@ spec:
       http:
         paths:
           - path: /grafana(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: tomer-prom-grafana
@@ -20,7 +20,7 @@ spec:
                   number: 80
 
           - path: /login(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: tomer-prom-grafana
