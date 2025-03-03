@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress
+  name: wordpress-tomer
   namespace: tomer
   labels:
-    app: wordpress
+    app: wordpress-tomer
 spec:
   selector:
-    app: wordpress
+    app: wordpress-tomer
   ports:
     - protocol: TCP
       port: 80
@@ -31,20 +31,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: wordpress-tomer
   namespace: tomer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wordpress
+      app: wordpress-tomer
   template:
     metadata:
       labels:
-        app: wordpress
+        app: wordpress-tomer
     spec:
       containers:
-        - name: wordpress
+        - name: wordpress-tomer
           image: public.ecr.aws/c0m6s3p2/tomer-k8s-inegrative/wordpress:latest
           env:
             - name: WORDPRESS_DB_HOST

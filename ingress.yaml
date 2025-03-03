@@ -11,10 +11,17 @@ spec:
     - host: localhost
       http:
         paths:
+          - path: /grafana
+            pathType: Prefix
+            backend:
+              service:
+                name: tomer-prom-grafana
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: wordpress-service
+                name: wordpress-tomer
                 port:
                   number: 80
