@@ -12,7 +12,7 @@ spec:
       http:
         paths:
           - path: /grafana
-            pathType: ImpletationSpecific
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: tomer-prom-grafana
