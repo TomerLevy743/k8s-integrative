@@ -6,8 +6,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx
-  namespace: tomer
+  ingressClassName: tomer-ingress-class
   rules:
     - host: localhost
       http:
