@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: tomer-ingress-class
   rules:
-    - host: localhost
+    - host: aaf4e647cb4fa4b0a8930238d313cefe-1553623326.us-east-1.elb.amazonaws.com
       http:
         paths:
           - path: /grafana
