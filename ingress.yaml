@@ -11,13 +11,21 @@ spec:
     - host: a23f6d09d57c44102bdbf42257d2dc72-1982208387.us-east-1.elb.amazonaws.com
       http:
         paths:
-          - path: /(grafana|login)(/|$)(.*)
+          - path: /grafana(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: tomer-prom-grafana
                 port:
                   number: 80
+          - path: /login(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: tomer-prom-grafana
+                port:
+                  number: 80
+
           - path: /
             pathType: Prefix
             backend:
