@@ -8,7 +8,7 @@ controller:
   service:
     type: LoadBalancer
   ingressClassResource:
-    name: "nginx"
+    name: tomer-ingress-class
     enabled: "true"
     default: "true"
     controllerValue: "k8s.io/ingress-nginx"
