@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mariadb
+  name: mariadb-tomer
   namespace: tomer
 spec:
   ports:
@@ -15,21 +15,21 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mariadb
+  name: mariadb-tomer
   namespace: tomer
 spec:
   selector:
     matchLabels:
-      app: mariadb
-  serviceName: mariadb
+      app: mariadb-tomer
+  serviceName: mariadb-tomer
   replicas: 1
   template:
     metadata:
       labels:
-        app: mariadb
+        app: mariadb-tomer
     spec:
       containers:
-        - name: mariadb
+        - name: mariadb-tomer
           image: public.ecr.aws/c0m6s3p2/tomer-k8s-inegrative/db:latest
           args:
             - "--default-authentication-plugin=mysql_native_password"
