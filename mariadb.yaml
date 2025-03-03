@@ -9,7 +9,7 @@ spec:
       targetPort: 3306
       protocol: TCP
   selector:
-    app: mariadb
+    app: mariadb-tomer
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -51,15 +51,7 @@ spec:
         - name: mariadb-storage
           persistentVolumeClaim:
             claimName: mariadb-pvc
-  # volumeClaimTemplates:
-  #   - metadata:
-  #       name: tomer-db-vc
-  #     spec:
-  #       accessModes: ["ReadWriteOnce"]
-  #       # storageClassName: ebs-sc-tomer
-  #       resources:
-  #         requests:
-  #           storage: 5Gi
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
