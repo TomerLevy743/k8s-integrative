@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: tomer-ingress-class
   rules:
-    - host: localhost
+    - host: aab8b1519715e49cb8ff749459d702cc-1018892589.us-east-1.elb.amazonaws.com
       http:
         paths:
           - path: /grafana(/|$)(.*)
@@ -26,7 +26,6 @@ spec:
                 name: tomer-prom-grafana
                 port:
                   number: 80
-
           - path: /
             pathType: Prefix
             backend:
