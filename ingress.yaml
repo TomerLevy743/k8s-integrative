@@ -14,8 +14,8 @@ spec:
     - host: aab8b1519715e49cb8ff749459d702cc-1018892589.us-east-1.elb.amazonaws.com
       http:
         paths:
-          - path: /grafana(/|$)(.*)
-            pathType: ImplementationSpecific
+          - path: /grafana
+            pathType: Prefix
             backend:
               service:
                 name: tomer-prom-grafana
