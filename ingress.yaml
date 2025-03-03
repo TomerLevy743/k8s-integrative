@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: tomer-ingress-1
+  name: tomer-ingress
   namespace: tomer
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: tomer-ingress-class
   rules:
-    - host: a23f6d09d57c44102bdbf42257d2dc72-1982208387.us-east-1.elb.amazonaws.com
+    - host: localhost
       http:
         paths:
           - path: /grafana(/|$)(.*)
@@ -18,6 +18,7 @@ spec:
                 name: tomer-prom-grafana
                 port:
                   number: 80
+
           - path: /login(/|$)(.*)
             pathType: Prefix
             backend:
