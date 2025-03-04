@@ -25,6 +25,7 @@ cd k8s-integrative
 
 ### 3️⃣ Deploy Using Helm
 ```sh
+kubectl apply -f storage-class.yaml
 helm install my-app ./helm-chart/
 ```
 
