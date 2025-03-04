@@ -21,9 +21,9 @@ metadata:
   name: wp-pv-claim-tomer
   namespace: tomer
 spec:
-  storageClassName: ebs-sc-tomer
+  storageClassName: ebs-sc-nitzanim
   accessModes:
-    - ebs-sc-nitzanim
+    - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
