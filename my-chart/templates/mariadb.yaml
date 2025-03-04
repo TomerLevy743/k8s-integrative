@@ -64,4 +64,4 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: ebs-sc-tomer
+  storageClassName: ebs-sc-nitzanim
