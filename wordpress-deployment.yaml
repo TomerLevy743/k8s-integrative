@@ -23,7 +23,7 @@ metadata:
 spec:
   storageClassName: ebs-sc-tomer
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
@@ -34,7 +34,7 @@ metadata:
   name: wordpress-tomer
   namespace: tomer
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: wordpress-tomer
